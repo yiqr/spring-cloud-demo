@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: supermarket-customer
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://localhost:8003
+      label: main
+      profile: ${spring.profiles.active}
+      name: ${spring.application.name}
+      discovery:
+        enabled: true
+        service-id: demo-config
+
+eureka:
+  instance:
+    hostname: localhost
+    appname: ${spring.application.name}
+  client:
+    serviceUrl:
+      defaultZone: ${app.eureka.client.url}
+app:
+  eureka:
+    security:
+      user:
+        name: register
+        password: 123123
+    client:
+      port: 8001
+      hostname: localhost
+      url: http://${app.eureka.security.user.name}:${app.eureka.security.user.password}@${app.eureka.client.hostname}:${app.eureka.client.port}/eureka/

@@ -1,0 +1,67 @@
+server:
+  port: ${SERVER_PORT:8003}
+spring:
+  application:
+    name: demo-config
+  boot:
+    admin:
+      client:
+        #admin  server端地址
+        url: http://localhost:8000
+        username: monitor
+        password: 123123
+        instance:
+          service-base-url: http://127.0.0.1:${server.port}
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/yiqr/spring-cloud-demo.git
+          search-paths: /demo-config/config
+          default-label: main
+          username: 用户名
+          password: 密码
+
+eureka:
+  instance:
+    hostname: localhost
+    appname: ${spring.application.name}
+  client:
+    serviceUrl:
+      defaultZone: ${app.eureka.client.url}
+
+# info信息会显示到SpringBootAdmin的server端，这里取的是pom文件中的数据
+info:
+  name: ${spring.application.name}
+  description: ${app.info.description}
+  version: @project.version@
+  groupId: @project.groupId@
+  artifactId: @project.artifactId@
+
+#Actuator配置：暴露敏感路径，默认情况下，敏感路径并不暴露
+management:
+  endpoints:
+    web:
+      exposure:
+        # 暴露xxx端点，如需暴露多个，用,分隔；如需暴露所有端点，用'*'
+        include: '*'
+  endpoint:
+    health:
+      # 是否展示健康检查详情
+      show-details: ALWAYS
+
+app:
+  info:
+    description: 配置中心
+  eureka:
+    security:
+      user:
+        name: register
+        password: 123123
+    client:
+      port: 8001
+      hostname: localhost
+      url: http://${app.eureka.security.user.name}:${app.eureka.security.user.password}@${app.eureka.client.hostname}:${app.eureka.client.port}/eureka/
+logging:
+  file:
+    path: logs/

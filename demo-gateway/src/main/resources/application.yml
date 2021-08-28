@@ -1,0 +1,76 @@
+server:
+  port: ${SERVER_PORT:8002}
+spring:
+  application:
+    name: demo-gateway
+  boot:
+    admin:
+      client:
+        #admin  server端地址
+        url: http://localhost:8000
+        username: monitor
+        password: 123123
+        instance:
+          service-base-url: http://127.0.0.1:${server.port}
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # gateway开启服务注册和发现的功能，并且spring cloud gateway自动根据服务发现为每一个服务创建了一个router，
+          # 这个router将以服务名开头的请求路径转发到对应的服务。
+          enabled: true
+          # 将请求路径上的服务名配置为小写
+          lowerCaseServiceId: true
+       #手动设置
+#      routes:
+#        - id: provider-feign-demo-id
+#          uri: lb://PROVIDER-FEIGN-DEMO
+#          predicates:
+#            - Path=/demo/**
+#          filters:
+#            - StripPrefix=1
+eureka:
+  instance:
+    hostname: localhost
+    appname: ${spring.application.name}
+  client:
+    serviceUrl:
+      defaultZone: ${app.eureka.client.url}
+
+
+
+# info信息会显示到SpringBootAdmin的server端，这里取的是pom文件中的数据
+info:
+  name: ${spring.application.name}
+  description: ${app.info.description}
+  version: @project.version@
+  groupId: @project.groupId@
+  artifactId: @project.artifactId@
+
+#Actuator配置：暴露敏感路径，默认情况下，敏感路径并不暴露
+management:
+  endpoints:
+    web:
+      exposure:
+        # 暴露xxx端点，如需暴露多个，用,分隔；如需暴露所有端点，用'*'
+        include: '*'
+  endpoint:
+    health:
+      # 是否展示健康检查详情
+      show-details: ALWAYS
+
+app:
+  info:
+    description: 网关
+  eureka:
+    security:
+      user:
+        name: register
+        password: 123123
+    client:
+      port: 8001
+      hostname: localhost
+      url: http://${app.eureka.security.user.name}:${app.eureka.security.user.password}@${app.eureka.client.hostname}:${app.eureka.client.port}/eureka/
+logging:
+  file:
+    path: logs/

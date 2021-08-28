@@ -1,0 +1,21 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: demo-monitorAdmin
+  thymeleaf:
+    check-template: false
+    check-template-location: false
+  security:
+    user:
+      name: monitor
+      password: 12313
+  boot:
+    admin:
+      ui:
+        title: ${spring.application.name}
+
+logging:
+  file:
+    path: logs/
