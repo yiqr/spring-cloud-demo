@@ -1,6 +1,6 @@
-package com.yiqr.modules.supermarket.customer.web;
+package com.yiqr.modules.supermarket.goods.web;
 
-import com.yiqr.modules.supermarket.customer.properties.CustomerProperties;
+import com.yiqr.modules.supermarket.goods.properties.GoodsProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ConfigDemoWeb {
     @Autowired
-    private CustomerProperties customerProperties;
+    private GoodsProperties goodsProperties;
 
     @GetMapping("/getConfig")
-    public CustomerProperties getConfig(){
-        return customerProperties;
+    public GoodsProperties getConfig() {
+        return goodsProperties;
     }
 }

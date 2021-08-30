@@ -7,7 +7,7 @@ spring:
     admin:
       client:
         #admin  server端地址
-        url: http://localhost:8000
+        url: http://127.0.0.1:8000
         username: monitor
         password: 123123
         instance:
@@ -31,7 +31,7 @@ spring:
 #            - StripPrefix=1
 eureka:
   instance:
-    hostname: localhost
+    hostname: 127.0.0.1
     appname: ${spring.application.name}
   client:
     serviceUrl:
@@ -69,7 +69,7 @@ app:
         password: 123123
     client:
       port: 8001
-      hostname: localhost
+      hostname: 127.0.0.1
       url: http://${app.eureka.security.user.name}:${app.eureka.security.user.password}@${app.eureka.client.hostname}:${app.eureka.client.port}/eureka/
 logging:
   file:

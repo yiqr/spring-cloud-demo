@@ -1,20 +1,20 @@
 server:
-  port: ${SERVER_PORT:9002}
+  port: 9003
 spring:
   application:
-    name: supermarket-customer
+    name: supermarket-pay
   boot:
     admin:
       client:
         #admin  server端地址
-        url: http://localhost:8000
+        url: http://127.0.0.1:8000
         username: monitor
         password: 123123
         instance:
           service-base-url: http://127.0.0.1:${server.port}
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/demo-supermarket-goods?useSSL=false&characterEncoding=utf8&characterSetResults=utf8&useUnicode=false&rewriteBatchedStatements=true&autoReconnect=true
+    url: jdbc:mysql://127.0.0.1:3306/demo-supermarket-pay?useSSL=false&characterEncoding=utf8&characterSetResults=utf8&useUnicode=false&rewriteBatchedStatements=true&autoReconnect=true
     username: root
     password: dudu.20190808
     hikari:
@@ -25,19 +25,16 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-
-eureka:
-  instance:
-    hostname: localhost
-    appname: ${spring.application.name}
-  client:
-    serviceUrl:
-      defaultZone: ${app.eureka.client.url}
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
 
 # info信息会显示到SpringBootAdmin的server端，这里取的是pom文件中的数据
 info:
   name: ${spring.application.name}
-  description: ${app.info.description}
+  description: @project.description@
   version: @project.version@
   groupId: @project.groupId@
   artifactId: @project.artifactId@
@@ -54,18 +51,6 @@ management:
       # 是否展示健康检查详情
       show-details: ALWAYS
 
-app:
-  info:
-    description: 超市商品&库存
-  eureka:
-    security:
-      user:
-        name: register
-        password: 123123
-    client:
-      port: 8001
-      hostname: localhost
-      url: http://${app.eureka.security.user.name}:${app.eureka.security.user.password}@${app.eureka.client.hostname}:${app.eureka.client.port}/eureka/
 logging:
   file:
     path: logs/

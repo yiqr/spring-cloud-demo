@@ -1,18 +1,20 @@
 server:
-  port: 9001
+  port: 9002
 spring:
+  application:
+    name: supermarket-goods
   boot:
     admin:
       client:
         #admin  server端地址
-        url: http://localhost:8000
+        url: http://127.0.0.1:8000
         username: monitor
         password: 123123
         instance:
           service-base-url: http://127.0.0.1:${server.port}
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/demo-supermarket-customer?useSSL=false&characterEncoding=utf8&characterSetResults=utf8&useUnicode=false&rewriteBatchedStatements=true&autoReconnect=true
+    url: jdbc:mysql://127.0.0.1:3306/demo-supermarket-goods?useSSL=false&characterEncoding=utf8&characterSetResults=utf8&useUnicode=false&rewriteBatchedStatements=true&autoReconnect=true
     username: root
     password: dudu.20190808
     hikari:
@@ -23,6 +25,11 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
 
 # info信息会显示到SpringBootAdmin的server端，这里取的是pom文件中的数据
 info:
@@ -43,6 +50,7 @@ management:
     health:
       # 是否展示健康检查详情
       show-details: ALWAYS
+
 logging:
   file:
     path: logs/

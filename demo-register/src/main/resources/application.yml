@@ -7,7 +7,7 @@ spring:
     admin:
       client:
         #admin  server端地址
-        url: http://localhost:8000
+        url: http://127.0.0.1:8000
         #对应server端的账号密码，不配置就监控不到这个client。
         username: monitor
         password: 123123
@@ -19,7 +19,7 @@ spring:
       password: 123123
 eureka:
   instance:
-    hostname: localhost
+    hostname: 127.0.0.1
     lease-renewal-interval-in-seconds: 20
     lease-expiration-duration-in-seconds: 60
     prefer-ip-address: true

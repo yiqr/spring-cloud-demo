@@ -1,6 +1,6 @@
 spring:
   application:
-    name: supermarket-customer
+    name: supermarket-goods
   profiles:
     active: dev
   cloud:

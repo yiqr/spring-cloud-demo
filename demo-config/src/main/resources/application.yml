@@ -7,7 +7,7 @@ spring:
     admin:
       client:
         #admin  server端地址
-        url: http://localhost:8000
+        url: http://127.0.0.1:8000
         username: monitor
         password: 123123
         instance:
@@ -21,10 +21,20 @@ spring:
           default-label: main
           username: 用户名
           password: 密码
+    bus:
+      refresh:
+        enabled: true
+#  kafka:
+#    bootstrap-servers: 192.168.0.21:9092
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: 127.0.0.1
     appname: ${spring.application.name}
   client:
     serviceUrl:
@@ -60,7 +70,7 @@ app:
         password: 123123
     client:
       port: 8001
-      hostname: localhost
+      hostname: 127.0.0.1
       url: http://${app.eureka.security.user.name}:${app.eureka.security.user.password}@${app.eureka.client.hostname}:${app.eureka.client.port}/eureka/
 logging:
   file:
