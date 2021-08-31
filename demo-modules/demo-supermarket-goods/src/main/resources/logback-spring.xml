@@ -49,6 +49,9 @@
     </appender>
 
     <logger name="com.yiqr" level="DEBUG"/>
+<!--    <logger name="org.hibernate" level="DEBUG">-->
+<!--        <appender-ref ref="STDOUT"/>-->
+<!--    </logger>-->
     <logger name="java.sql" level="DEBUG">
         <appender-ref ref="STDOUT"/>
     </logger>

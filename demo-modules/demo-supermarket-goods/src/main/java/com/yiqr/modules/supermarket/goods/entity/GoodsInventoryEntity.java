@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 
 /**
  * @Auther: yiqr
@@ -23,15 +23,17 @@ import javax.validation.constraints.Size;
 public class GoodsInventoryEntity {
 
     @Id
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, precision = 10)
     private Integer id;
 
-    @Size(max = 40)
     @Column(name = "goods_name", length = 40)
     private String goodsName;
 
-    @Size(max = 5)
+    @NotNull
+    @Column(name = "unit_price", precision = 10, scale = 2)
+    private BigDecimal unitPrice;
+
     @Column(name = "goods_num", length = 5)
     private Integer goodsNum;
 }

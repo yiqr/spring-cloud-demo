@@ -1,6 +1,7 @@
 package com.yiqr.modules.supermarket.goods.dao;
 
 import com.yiqr.modules.supermarket.goods.entity.GoodsInventoryEntity;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,5 +11,5 @@ import org.springframework.stereotype.Repository;
  * @Description:
  */
 @Repository
-public interface GoodsInventoryDao extends PagingAndSortingRepository<GoodsInventoryEntity, Integer> {
+public interface GoodsInventoryDao extends PagingAndSortingRepository<GoodsInventoryEntity, Integer>, QuerydslPredicateExecutor<GoodsInventoryEntity> {
 }

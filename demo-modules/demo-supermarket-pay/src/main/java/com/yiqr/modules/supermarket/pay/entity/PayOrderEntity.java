@@ -3,8 +3,6 @@ package com.yiqr.modules.supermarket.pay.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 /**
@@ -24,11 +22,10 @@ import java.math.BigDecimal;
 public class PayOrderEntity {
 
     @Id
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, precision = 10)
     private Integer id;
 
-    @Size(max = 40)
     @Column(name = "transaction_no", length = 40)
     private String transactionNo;
 

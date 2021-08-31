@@ -1,6 +1,7 @@
 package com.yiqr.modules.supermarket.pay.dao;
 
 import com.yiqr.modules.supermarket.pay.entity.PayOrderEntity;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,5 +11,5 @@ import org.springframework.stereotype.Repository;
  * @Description:
  */
 @Repository
-public interface PayOrderDao extends PagingAndSortingRepository<PayOrderEntity, Integer> {
+public interface PayOrderDao extends PagingAndSortingRepository<PayOrderEntity, Integer>, QuerydslPredicateExecutor<PayOrderEntity> {
 }
