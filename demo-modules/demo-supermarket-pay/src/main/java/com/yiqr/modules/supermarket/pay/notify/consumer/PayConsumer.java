@@ -38,8 +38,8 @@ public class PayConsumer {
     ))
     @RabbitHandler
     public void onPayOrderMessage(@Payload String message, @Headers Map<String, Object> headers, Channel channel) throws IOException {
+        CustomerMessage customerMessage = JSON.parseObject(message, CustomerMessage.class);
         try {
-            CustomerMessage customerMessage = JSON.parseObject(message, CustomerMessage.class);
             JSONObject messageBody = JSON.parseObject(customerMessage.getMessageBody(), JSONObject.class);
             notifyPayOrderService.createOrder(messageBody.getString("transactionNo"), new BigDecimal(messageBody.getString("totalPrice")));
             log.info("消息处理成功");
@@ -50,8 +50,6 @@ public class PayConsumer {
             channel.basicAck(delveryTag, false);
         } catch (Exception ex) {
             log.info("消费异常：{}", ex);
-            Long delveryTag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);
-            channel.basicAck(delveryTag, false);
         }
     }
 
