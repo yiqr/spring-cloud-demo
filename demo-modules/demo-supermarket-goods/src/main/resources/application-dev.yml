@@ -30,6 +30,13 @@ spring:
     port: 5672
     username: guest
     password: guest
+    # RabbitMQ 消费端配置
+    listener:
+      simple:
+        concurrency: 5  # 并发数
+        acknowledge-mode: manual # auto:自动签收、manual:手动签收、none:不签收
+        max-concurrency: 10 # 最大并发数
+        prefetch: 1  # 限流，同一时间只能有一条数据过来
 
 # info信息会显示到SpringBootAdmin的server端，这里取的是pom文件中的数据
 info:

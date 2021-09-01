@@ -30,6 +30,8 @@ spring:
     port: 5672
     username: guest
     password: guest
+    publisher-confirm-type: correlated  # 必须配置这个才会确认回调
+    publisher-returns: true
 
 # info信息会显示到SpringBootAdmin的server端，这里取的是pom文件中的数据
 info:

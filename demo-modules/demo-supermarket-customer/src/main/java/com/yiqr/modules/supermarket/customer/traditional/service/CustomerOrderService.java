@@ -74,7 +74,7 @@ public class CustomerOrderService {
         goodsClient.reduceInventory(goodsName, goodsNum);
         //保存shopping信息
         CustomerOrderEntity customerOrderEntity = new CustomerOrderEntity();
-        customerOrderEntity.setCustomerName(customerProperties.getName());
+        customerOrderEntity.setCustomerName(customerAccount.getCustomerName());
         customerOrderEntity.setOrderNo(UUID.randomUUID().toString().replaceAll("-", ""));
         customerOrderEntity.setGoodsName(goodsName);
         customerOrderEntity.setGoodsNum(goodsNum);
