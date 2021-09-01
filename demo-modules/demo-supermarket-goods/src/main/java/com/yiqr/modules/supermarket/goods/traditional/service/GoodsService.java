@@ -1,4 +1,4 @@
-package com.yiqr.modules.supermarket.goods.service;
+package com.yiqr.modules.supermarket.goods.traditional.service;
 
 import com.yiqr.modules.supermarket.goods.dao.GoodsInventoryDao;
 import com.yiqr.modules.supermarket.goods.entity.GoodsInventoryEntity;

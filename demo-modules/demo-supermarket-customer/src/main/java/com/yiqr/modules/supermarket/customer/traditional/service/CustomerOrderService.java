@@ -1,14 +1,14 @@
-package com.yiqr.modules.supermarket.customer.service;
+package com.yiqr.modules.supermarket.customer.traditional.service;
 
-import com.yiqr.modules.supermarket.customer.client.IGoodsClient;
-import com.yiqr.modules.supermarket.customer.client.IPayClient;
-import com.yiqr.modules.supermarket.customer.client.mode.GoodsInventoryEntity;
 import com.yiqr.modules.supermarket.customer.dao.CustomerAccountDao;
 import com.yiqr.modules.supermarket.customer.dao.CustomerOrderDao;
 import com.yiqr.modules.supermarket.customer.entity.CustomerAccountEntity;
 import com.yiqr.modules.supermarket.customer.entity.CustomerOrderEntity;
 import com.yiqr.modules.supermarket.customer.entity.QCustomerAccountEntity;
 import com.yiqr.modules.supermarket.customer.properties.CustomerProperties;
+import com.yiqr.modules.supermarket.customer.traditional.client.IGoodsClient;
+import com.yiqr.modules.supermarket.customer.traditional.client.IPayClient;
+import com.yiqr.modules.supermarket.customer.traditional.client.mode.GoodsInventoryEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
@@ -82,6 +82,10 @@ public class CustomerOrderService {
         customerOrderEntity.setTotalPrice(totalPrice);
         customerOrderEntity.setTransactionNo(transactionNo);
         customerOrderDao.save(customerOrderEntity);
+
+        if (goodsNum == 11) {
+            throw new RuntimeException("人为异常！");
+        }
 
         //修改余额
         customerAccount.setBalanceAmt(customerAccount.getBalanceAmt().subtract(totalPrice));

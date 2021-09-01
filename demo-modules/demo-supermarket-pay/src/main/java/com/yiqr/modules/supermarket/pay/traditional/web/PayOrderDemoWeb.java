@@ -1,7 +1,7 @@
-package com.yiqr.modules.supermarket.pay.web;
+package com.yiqr.modules.supermarket.pay.traditional.web;
 
 import com.yiqr.modules.supermarket.pay.properties.PayProperties;
-import com.yiqr.modules.supermarket.pay.service.PayOrderService;
+import com.yiqr.modules.supermarket.pay.traditional.service.PayOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;

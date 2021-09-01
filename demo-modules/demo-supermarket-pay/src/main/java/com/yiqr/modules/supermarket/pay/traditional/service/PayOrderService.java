@@ -1,4 +1,4 @@
-package com.yiqr.modules.supermarket.pay.service;
+package com.yiqr.modules.supermarket.pay.traditional.service;
 
 import com.yiqr.modules.supermarket.pay.dao.PayOrderDao;
 import com.yiqr.modules.supermarket.pay.entity.PayOrderEntity;

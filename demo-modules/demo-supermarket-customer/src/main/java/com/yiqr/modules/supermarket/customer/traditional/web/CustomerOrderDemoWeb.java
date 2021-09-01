@@ -1,7 +1,7 @@
-package com.yiqr.modules.supermarket.customer.web;
+package com.yiqr.modules.supermarket.customer.traditional.web;
 
 import com.yiqr.modules.supermarket.customer.properties.CustomerProperties;
-import com.yiqr.modules.supermarket.customer.service.CustomerOrderService;
+import com.yiqr.modules.supermarket.customer.traditional.service.CustomerOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

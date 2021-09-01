@@ -1,4 +1,4 @@
-package com.yiqr.modules.supermarket.customer.client;
+package com.yiqr.modules.supermarket.customer.traditional.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

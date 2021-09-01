@@ -1,8 +1,8 @@
-package com.yiqr.modules.supermarket.goods.web;
+package com.yiqr.modules.supermarket.goods.traditional.web;
 
 import com.yiqr.modules.supermarket.goods.entity.GoodsInventoryEntity;
 import com.yiqr.modules.supermarket.goods.properties.GoodsProperties;
-import com.yiqr.modules.supermarket.goods.service.GoodsService;
+import com.yiqr.modules.supermarket.goods.traditional.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;

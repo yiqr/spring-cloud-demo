@@ -47,6 +47,7 @@ public class CustomerOrderEntity {
     @Column(name = "total_price", precision = 10, scale = 2)
     private BigDecimal totalPrice;
 
+
     @Column(name = "transaction_no", length = 40)
     private String transactionNo;
 }

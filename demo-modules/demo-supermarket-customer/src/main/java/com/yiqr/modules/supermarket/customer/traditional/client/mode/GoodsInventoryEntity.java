@@ -1,4 +1,4 @@
-package com.yiqr.modules.supermarket.customer.client.mode;
+package com.yiqr.modules.supermarket.customer.traditional.client.mode;
 
 import lombok.Data;
 

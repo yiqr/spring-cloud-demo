@@ -3,7 +3,6 @@ package com.yiqr.modules.supermarket.customer.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 /**
@@ -27,7 +26,6 @@ public class CustomerAccountEntity {
     @Column(name = "id", nullable = false, precision = 10)
     private Integer id;
 
-    @NotNull
     @Column(name = "customer_name", length = 255)
     private String customerName;
 

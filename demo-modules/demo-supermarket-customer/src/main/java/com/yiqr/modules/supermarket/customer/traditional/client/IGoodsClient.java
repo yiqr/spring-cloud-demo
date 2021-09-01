@@ -1,6 +1,6 @@
-package com.yiqr.modules.supermarket.customer.client;
+package com.yiqr.modules.supermarket.customer.traditional.client;
 
-import com.yiqr.modules.supermarket.customer.client.mode.GoodsInventoryEntity;
+import com.yiqr.modules.supermarket.customer.traditional.client.mode.GoodsInventoryEntity;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

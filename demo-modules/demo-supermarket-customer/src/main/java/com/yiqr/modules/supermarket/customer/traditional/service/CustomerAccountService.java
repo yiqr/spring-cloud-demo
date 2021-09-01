@@ -1,4 +1,4 @@
-package com.yiqr.modules.supermarket.customer.service;
+package com.yiqr.modules.supermarket.customer.traditional.service;
 
 import com.yiqr.modules.supermarket.customer.dao.CustomerAccountDao;
 import com.yiqr.modules.supermarket.customer.entity.CustomerAccountEntity;
