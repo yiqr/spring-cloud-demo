@@ -7,6 +7,7 @@ import com.yiqr.modules.supermarket.goods.properties.GoodsProperties;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -57,6 +58,7 @@ public class GoodsService {
      * @param goodsName
      * @param num
      */
+    @Transactional
     public void reduceInventory(String goodsName, Integer num) {
         if (StringUtils.isEmpty(goodsName)) {
             throw new RuntimeException("goodsName not be null.");

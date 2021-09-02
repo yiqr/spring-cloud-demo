@@ -5,6 +5,7 @@ import com.yiqr.modules.supermarket.pay.entity.PayOrderEntity;
 import com.yiqr.modules.supermarket.pay.properties.PayProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -31,6 +32,7 @@ public class PayOrderService {
      *
      * @param transactionAmount
      */
+    @Transactional
     public String createOrder(BigDecimal transactionAmount) {
         String transactionNo = UUID.randomUUID().toString().replaceAll("-", "");
         PayOrderEntity entity = new PayOrderEntity();

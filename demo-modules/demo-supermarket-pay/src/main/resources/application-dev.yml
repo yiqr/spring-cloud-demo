@@ -25,6 +25,11 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+  cloud:
+    alibaba:
+      seata:
+        # 与seata-server定义保持一致
+        tx-service-group: supermarket-demo-group
   rabbitmq:
     host: 127.0.0.1
     port: 5672
